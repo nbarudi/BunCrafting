@@ -96,6 +96,11 @@ public class CustomCraft {
                         craftLocation.getWorld().spawnParticle(Particle.WHITE_SMOKE, craftLocation, 70, 0.5,0.5,0.5);
                         craftLocation.getWorld().playSound(craftLocation, Sound.ENTITY_CHICKEN_EGG, 1f, 1f);
                     }
+                    for(ItemStack reagent : reagents) {
+                        if(reagent.getType().name().toLowerCase().contains("bucket") && !reagent.getType().equals(Material.BUCKET)){
+                            craftLocation.getWorld().dropItem(craftLocation, new ItemStack(Material.BUCKET));
+                        }
+                    }
                     craftLocation.getWorld().playSound(craftLocation, Sound.ENTITY_PLAYER_LEVELUP, 0.5f, 0.5f);
                     isClean = true;
                 }

@@ -54,6 +54,18 @@ public class TestCommand extends Command {
                 .setIngredient('R', Material.REDSTONE_BLOCK);
         RecipeService.addRecipe(NamespacedKey.fromString("test_recipe", CustomCraftingSystem.getInstance()), recipe);
 
+        recipe = new LargeShapedRecipe(new ItemStack(Material.WITHER_SKELETON_SKULL))
+                .shape("SSS", "S S", "SSS")
+                .setIngredient('S', Material.SOUL_SAND);
+        RecipeService.addRecipe(NamespacedKey.fromString("test_recipe_2", CustomCraftingSystem.getInstance()), recipe);
+
+        recipe = new LargeShapedRecipe(new ItemStack(Material.SPONGE))
+                .shape("YYYYY", " WDW ")
+                .setIngredient('Y', Material.YELLOW_CONCRETE_POWDER)
+                .setIngredient('W', Material.WATER_BUCKET)
+                .setIngredient('D', Material.DIAMOND);
+        RecipeService.addRecipe(NamespacedKey.fromString("test_recipe_3", CustomCraftingSystem.getInstance()), recipe);
+
         LargeCrafter crafter = new LargeCrafter();
         player.openInventory(crafter.getInventory());
 
