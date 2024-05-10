@@ -2,6 +2,8 @@ plugins {
     `java-library`
     id("io.papermc.paperweight.userdev") version "1.6.3"
     id("xyz.jpenilla.run-paper") version "2.2.4" // Adds runServer and runMojangMappedServer tasks for testing
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
+    id("maven-publish")
 }
 group = "ca.bungo"
 version = "1.0.0-SNAPSHOT"
@@ -29,3 +31,29 @@ tasks {
         options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
     }
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+
+            pom {
+                name.set(project.name)
+                description.set(project.description)
+            }
+        }
+    }
+}
+
+nexusPublishing {
+    repositories {
+        create("nexus") {
+            nexusUrl = uri("https://nexus.bungo.ca/repository/bungo-staging/")
+            snapshotRepositoryUrl = uri("https://nexus.bungo.ca/repository/bungo-snapshots/")
+            username = findProperty("nexusUsername") as String?
+            password = findProperty("nexusPassword") as String?
+        }
+    }
+}
+
+

@@ -1,6 +1,6 @@
   name: CustomCraftingSystem
   version: 1.0.0
-  main: ca.bungo.customcraftingsystem.CustomCraftingSystem
+  main: ca.bungo.bungoscrafting.CustomCraftingSystem
   api-version: 1.20.5
   libraries:
     - systems.manifold:manifold-ext:2024.1.13

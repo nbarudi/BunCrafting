@@ -1,7 +1,6 @@
-package ca.bungo.customcraftingsystem.util;
+package ca.bungo.bungoscrafting.util;
 
 import org.bukkit.Location;
-import org.bukkit.entity.ItemDisplay;
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
@@ -10,10 +9,21 @@ import java.util.List;
 public class PositionUtility {
 
 
+    /**
+     * Get the angle pointing to a defined location
+     * @param vecToLoc Vector that points to the defined location
+     * */
     public static double getAngleToLocation(Vector vecToLoc){
         return Math.toDegrees(Math.atan2(vecToLoc.getZ(), vecToLoc.getX()));
     }
 
+    /**
+     * Create a list of locations which define a circular path
+     * @param location Central location to build the circle around
+     * @param radius The radius of the circle
+     * @param numPoints Number of points to define
+     * @return List of Locations for the circle
+     * */
     public static List<Location> teleportInCircle(Location location, double radius, int numPoints) {
         double angle = 0;
         double offset = 360.0 / numPoints;
@@ -36,6 +46,14 @@ public class PositionUtility {
         return locations;
     }
 
+    /**
+     * Create a list of locations which define a circular path but add an offset to the position
+     * @param location Central location to build the circle around
+     * @param radius The radius of the circle
+     * @param numPoints Number of points to define
+     * @param posoffset How much to offset each point by
+     * @return List of Locations for the circle
+     * */
     public static List<Location> teleportInCircle(Location location, double radius, int numPoints, float posoffset) {
         double angle = 0;
         double offset = 360.0 / numPoints;

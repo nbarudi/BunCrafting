@@ -1,7 +1,7 @@
-package ca.bungo.customcraftingsystem.types;
+package ca.bungo.bungoscrafting.types;
 
-import ca.bungo.customcraftingsystem.CustomCraftingSystem;
-import ca.bungo.customcraftingsystem.util.PositionUtility;
+import ca.bungo.bungoscrafting.CustomCraftingSystem;
+import ca.bungo.bungoscrafting.util.PositionUtility;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -16,6 +16,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Custom animated crafting class
+ * Handles spawning item displays, animating them around, and creating the result items
+ * */
 public class CustomCraft {
 
     private static final float CRAFT_RADIUS = 8f;
@@ -31,12 +35,25 @@ public class CustomCraft {
 
     private boolean isClean = false;
 
+    /**
+     * Create a new custom craft at the defined location
+     * @param craftLocation Location where the craft was started (Will be where the resulting items spawn)
+     * @param reagents Items used for the custom craft, these will be what float around
+     * @param results Items that will return
+     * */
     public CustomCraft(Location craftLocation, List<ItemStack> reagents, List<ItemStack> results){
         this.reagents = reagents;
         this.results = results;
         this.craftLocation = craftLocation;
     }
 
+    /**
+     * Create a new custom craft at the defined location and state how long it will take for the recipe to be completed
+     * @param craftLocation Location where the craft was started (Will be where the resulting items spawn)
+     * @param reagents Items used for the custom craft, these will be what float around
+     * @param results Items that will return
+     * @param timeToCraft Time in ticks to craft the recipe
+     * */
     public CustomCraft(Location craftLocation, List<ItemStack> reagents, List<ItemStack> results, int timeToCraft){
         this.reagents = reagents;
         this.results = results;
@@ -44,8 +61,15 @@ public class CustomCraft {
         this.craftLocation = craftLocation;
     }
 
+    /**
+     * Get remaining crafting time
+     * @return ticks remaining
+     * */
     public float getRemainingTime() { return timeToCraft; }
 
+    /**
+     * Start the custom craft!
+     * */
     public void startCraft(){
         startCustomCraft();
     }
@@ -111,6 +135,9 @@ public class CustomCraft {
         runnable.runTaskTimer(CustomCraftingSystem.getInstance(), 0, 1);
     }
 
+    /**
+     * Cleanup the item displays and drop the reagents in the world
+     * */
     public void cleanup(){
         if(isClean || displays == null) return;
         for(ItemDisplay display : displays){

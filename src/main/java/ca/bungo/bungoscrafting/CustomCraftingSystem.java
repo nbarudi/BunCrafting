@@ -1,9 +1,8 @@
-package ca.bungo.customcraftingsystem;
+package ca.bungo.bungoscrafting;
 
-import ca.bungo.customcraftingsystem.commands.TestCommand;
-import ca.bungo.customcraftingsystem.events.InventoryListener;
-import ca.bungo.customcraftingsystem.manager.CraftingManager;
-import ca.bungo.customcraftingsystem.types.CustomCraft;
+import ca.bungo.bungoscrafting.commands.TestCommand;
+import ca.bungo.bungoscrafting.events.InventoryListener;
+import ca.bungo.bungoscrafting.manager.CraftingManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.slf4j.Logger;
 

@@ -1,10 +1,9 @@
-package ca.bungo.customcraftingsystem.commands;
+package ca.bungo.bungoscrafting.commands;
 
-import ca.bungo.customcraftingsystem.CustomCraftingSystem;
-import ca.bungo.customcraftingsystem.api.RecipeService;
-import ca.bungo.customcraftingsystem.api.recipes.LargeShapedRecipe;
-import ca.bungo.customcraftingsystem.types.LargeCrafter;
-import org.bukkit.Bukkit;
+import ca.bungo.bungoscrafting.CustomCraftingSystem;
+import ca.bungo.bungoscrafting.api.RecipeService;
+import ca.bungo.bungoscrafting.api.recipes.LargeShapedRecipe;
+import ca.bungo.bungoscrafting.types.LargeCrafter;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;

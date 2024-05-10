@@ -1,8 +1,8 @@
-package ca.bungo.customcraftingsystem.types;
+package ca.bungo.bungoscrafting.types;
 
-import ca.bungo.customcraftingsystem.CustomCraftingSystem;
-import ca.bungo.customcraftingsystem.api.RecipeService;
-import ca.bungo.customcraftingsystem.api.recipes.LargeShapedRecipe;
+import ca.bungo.bungoscrafting.CustomCraftingSystem;
+import ca.bungo.bungoscrafting.api.RecipeService;
+import ca.bungo.bungoscrafting.api.recipes.LargeShapedRecipe;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.sound.Sound;
 import org.bukkit.Bukkit;
@@ -16,6 +16,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
+/**
+ * Create the custom 5x5 crafting grid
+ * This class handles all the inventory clicks, recipe verifying, and crafting animation spawning for the service
+ * */
 public class LargeCrafter implements InventoryHolder {
 
     private final Inventory inventory;
@@ -77,6 +81,10 @@ public class LargeCrafter implements InventoryHolder {
         }
     }
 
+    /**
+     * Get the LargeCrafter inventory
+     * @return Custom 5x5 crafting grid inventory
+     * */
     @Override
     public @NotNull Inventory getInventory() {
         return inventory;
@@ -201,6 +209,11 @@ public class LargeCrafter implements InventoryHolder {
         task.runTaskTimer(CustomCraftingSystem.getInstance(), 0, 10);
     }
 
+    /**
+     * Handles all the inventory click logic.
+     * This listener is already defined within the crafting service
+     * @param event InventoryClickEvent to manage
+     * */
     public void handleInventoryClick(InventoryClickEvent event){
         ItemStack itemStack = event.getCurrentItem();
 
@@ -263,6 +276,11 @@ public class LargeCrafter implements InventoryHolder {
         }
     }
 
+    /**
+     * Handles all the inventory close logic.
+     * This listener is already defined within the crafting service
+     * @param event InventoryCloseEvent to manage
+     * */
     public void handleInventoryClose(InventoryCloseEvent event){
         for(ItemStack stack : inventory.getContents()){
             if(stack == null) continue;

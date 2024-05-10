@@ -1,12 +1,10 @@
-package ca.bungo.customcraftingsystem.events;
+package ca.bungo.bungoscrafting.events;
 
-import ca.bungo.customcraftingsystem.CustomCraftingSystem;
-import ca.bungo.customcraftingsystem.types.LargeCrafter;
+import ca.bungo.bungoscrafting.types.LargeCrafter;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
 
 public class InventoryListener implements Listener {
 
